@@ -6,14 +6,16 @@
 //  Copyright © 2020 HSBC Holdings plc. All rights reserved.
 //
 
-import Foundation
-
-
 // description
 // 读取指定文件夹的strings 文件
 // 将其转换为swift文件
 // 写入到指定路径
-// 使用swiftformat 进行格式化处理
+
+import Foundation
+
+
+
+
 
 // 入参
 // 1. bundle 路径
@@ -21,106 +23,154 @@ import Foundation
 // 3. CopyBundleCovertible 实例类名
 
 
+// 2. TODO: bundle 需要动态处理,bundleConvertible 协议
+// 3. TODO: 批量读取文件
+// 4. TODO: 更加友好的参数提示
+// 5. TODO: 校验是否某个文件key缺少
 
 
 
-
-
-//let path = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/en.lproj/copy.strings"
 let outPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture"
 
 let folderPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/HK.bundle"
 
 let CopyBundleCovertibleClassName = "DefaultBundle"
 
-let bundleURL = URL(fileURLWithPath: folderPath)
+
 // 查找指定文件夹下的 .lproj 文件
 // 由于不同语言的 .lproj key是相同的，所以这里只检查一种语言的key
 // 这里默认检查en
-let region = "en.lproj"
-
-//guard let bundleURL = bundleURL else {
-//    fatalError("not found path: \(folderPath)")
-//}
 
 
-let folders: [URL]
-do {
-   folders = try FileManager.default.contentsOfDirectory(at: bundleURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+/// 获取指定目录下, lproj 文件路径
+/// - Parameters:
+///   - path: 资源路径
+///   - region: lproj name
+func getLprojFile(path: String, lprojName: String = "en.lproj") throws -> URL {
+
+    var isDirectory: ObjCBool = false
     
+    let lprojPath = "\(path)/\(lprojName)"
 
-} catch  {
-    throw error
+    guard FileManager.default.fileExists(atPath: lprojPath, isDirectory: &isDirectory) else {
+        throw NSError(domain: "not found \(lprojName) in \(path)", code: 999, userInfo: nil)
+    }
+    
+    if isDirectory.boolValue {
+        return URL(fileURLWithPath: lprojPath)
+    } else {
+       throw NSError(domain: "\(lprojName) is not directory", code: 999, userInfo: nil)
+    }
+    
+    
 }
 
-let lprojs = folders.filter { $0.lastPathComponent == region }
-guard lprojs.count > 0 else {
-    print("not found \(region) in \(folderPath)")
-    exit(-1)
+
+func getAllLprojFile(in path: URL) throws -> [URL] {
+    let folders: [URL] = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+    
+    
+    let lprojs = folders.filter { $0.pathExtension == "lproj" }
+    guard lprojs.count > 0 else {
+        throw NSError(domain: "not found lproj file in \(path)", code: 999, userInfo: nil)
+    }
+    
+    return lprojs
 }
 
-let regionlproj = lprojs[0]
 
-let stringsFile: [URL]
-do {
-   stringsFile = try FileManager.default.contentsOfDirectory(at: regionlproj, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
-    .filter {  $0.pathExtension == "strings"}
-    
-
-} catch  {
-    throw error
+/// 获取 ****.lproj 下所有strings 文件
+/// - Parameter url: lproj 文件路径名
+func getAllStringsFile(url: URL) throws -> [URL] {
+    let stringsFile: [URL] = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+        .filter {  $0.pathExtension == "strings"}
+    return stringsFile
 }
 
-for file in stringsFile {
-    // 1. TODO: key 需要做处理， 首字母小写， 去除下划线，并且将接下来的那个字母大写
-    // 2. TODO: bundle 需要动态处理,bundleConvertible 协议
-    // 3. TODO: 批量读取文件
+
+/// 根据.strings 生成对应的swift code
+/// - Parameter url: strings path
+func covertStringsFileToSwiftSourceCode(url: URL) throws -> String {
     
-    let fileName = file.lastPathComponent.components(separatedBy: ".")[0]
-    
-    
-    guard let dic = NSDictionary(contentsOf: file) as? [String: String] else {
-        print("invalid file: \(file)")
-        exit(-1)
+    guard let dic = NSDictionary(contentsOf: url) as? [String: String] else {
+        throw NSError(domain: "invalid file: \(url)", code: 888, userInfo: nil)
     }
     
     
     var result = "struct Strings {\n"
     
-    result += "enum Copy: String {\n"
+    result += "\tenum Copy: String {\n"
     
     for (key,_) in dic {
-        result += "case \(key) = \"\(key)\"\n"
+        result += "\t\tcase \(mapKey(key)) = \"\(key)\"\n"
     }
     
+    result += "\n"
+    
     result += """
-    func localized() -> String {
-    return bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
-    }\n
-    """
-    result += """
-    func bundle() -> Bundle {
-    return \(CopyBundleCovertibleClassName).shared.asBundle()
-    }\n
+    \t\tfunc localized() -> String {
+    \t\t\treturn bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
+    \t\t}\n
     """
     
-    result += "}\n"
+    result += "\n"
+    
+    result += """
+    \t\tfunc bundle() -> Bundle {
+    \t\t\treturn \(CopyBundleCovertibleClassName).shared.asBundle()
+    \t\t}\n
+    """
+    
+    result += "\t}\n"
     
     result += "}\n"
     
     print(result)
     print("*****")
-    try? result.write(to: URL.init(fileURLWithPath: outPath + "/\(fileName).swift"), atomically: true, encoding: String.Encoding.utf8)
-    
     print(dic)
+    return result
+}
+
+/// 将key 做一下处理，防止因为非法key，导致输出文件编译错误
+///
+func mapKey(_ key: String) -> String {
+    /// 将空格 转化为 _
+    let key = key.replacingOccurrences(of: " ", with: "_")
+    
+    
+    // 去掉空格，单词首字母大写
+    let keys = key.split(separator: String.Element("_")).map { $0.capitalized }
+    var resultKey = keys.reduce("") { $0 + $1 }
+    
+    // 首单词首字母小写
+    if let firstLetter = resultKey.first {
+        
+        resultKey = resultKey.replacingCharacters(in: resultKey.startIndex...resultKey.startIndex, with: firstLetter.lowercased())
+    }
+    
+    return resultKey
+    
 }
 
 
 
+let regionlprojURL = try getLprojFile(path: folderPath)
 
 
+let stringsFile = try getAllStringsFile(url: regionlprojURL)
 
-
-print("Hello, World!")
+// 读取strings file
+try stringsFile.map { file -> (String, String) in
+    
+    let fileName = file.lastPathComponent.components(separatedBy: ".")[0]
+    
+    let result = try covertStringsFileToSwiftSourceCode(url: file)
+    
+    return (fileName, result)
+}
+    // 写入指定文件
+    .forEach { (fileName, sourceString) in
+        try sourceString.write(to: URL.init(fileURLWithPath: outPath + "/\(fileName).swift"), atomically: true, encoding: String.Encoding.utf8)
+}
 
 
