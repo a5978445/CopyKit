@@ -26,8 +26,8 @@ import Foundation
 
 
 
-let path = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/en.lproj/copy.strings"
-let outPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/en.lproj/copy.swift"
+//let path = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/en.lproj/copy.strings"
+let outPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture"
 
 let folderPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/HK.bundle"
 
@@ -61,9 +61,9 @@ guard lprojs.count > 0 else {
 
 let regionlproj = lprojs[0]
 
-let strings: [URL]
+let stringsFile: [URL]
 do {
-   strings = try FileManager.default.contentsOfDirectory(at: bundleURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+   stringsFile = try FileManager.default.contentsOfDirectory(at: regionlproj, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
     .filter {  $0.pathExtension == "strings"}
     
 
@@ -71,16 +71,20 @@ do {
     throw error
 }
 
-for
-
-
-let dic = NSDictionary(contentsOfFile: path) as? [String: String]
-
-
-// 1. TODO: key 需要做处理， 首字母小写， 去除下划线，并且将接下来的那个字母大写
-// 2. TODO: bundle 需要动态处理,bundleConvertible 协议
-// 3. TODO: 批量读取文件
-if let dic = dic {
+for file in stringsFile {
+    // 1. TODO: key 需要做处理， 首字母小写， 去除下划线，并且将接下来的那个字母大写
+    // 2. TODO: bundle 需要动态处理,bundleConvertible 协议
+    // 3. TODO: 批量读取文件
+    
+    let fileName = file.lastPathComponent.components(separatedBy: ".")[0]
+    
+    
+    guard let dic = NSDictionary(contentsOf: file) as? [String: String] else {
+        print("invalid file: \(file)")
+        exit(-1)
+    }
+    
+    
     var result = "struct Strings {\n"
     
     result += "enum Copy: String {\n"
@@ -91,24 +95,31 @@ if let dic = dic {
     
     result += """
     func localized() -> String {
-        return bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
+    return bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
     }\n
-"""
+    """
     result += """
     func bundle() -> Bundle {
-        return \(CopyBundleCovertibleClassName).shared.asBundle()
+    return \(CopyBundleCovertibleClassName).shared.asBundle()
     }\n
-"""
+    """
     
-    result += "}"
+    result += "}\n"
     
-    result += "}"
+    result += "}\n"
     
     print(result)
     print("*****")
-    try? result.write(to: URL.init(fileURLWithPath: outPath), atomically: true, encoding: String.Encoding.utf8)
+    try? result.write(to: URL.init(fileURLWithPath: outPath + "/\(fileName).swift"), atomically: true, encoding: String.Encoding.utf8)
+    
+    print(dic)
 }
-print(dic)
+
+
+
+
+
+
 
 print("Hello, World!")
 
