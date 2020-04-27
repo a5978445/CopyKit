@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		147869392456D03B00B64254 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869382456D03B00B64254 /* main.swift */; };
+		147869432456D05800B64254 /* DefaultBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869402456D05800B64254 /* DefaultBundle.swift */; };
+		147869442456D05800B64254 /* ResultDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869412456D05800B64254 /* ResultDemo.swift */; };
+		147869452456D05800B64254 /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		147869352456D03B00B64254 /* CopyKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CopyKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		147869382456D03B00B64254 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		147869402456D05800B64254 /* DefaultBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBundle.swift; sourceTree = "<group>"; };
+		147869412456D05800B64254 /* ResultDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultDemo.swift; sourceTree = "<group>"; };
+		147869422456D05800B64254 /* CopyBundleCovertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyBundleCovertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,20 @@
 		147869372456D03B00B64254 /* CopyKit */ = {
 			isa = PBXGroup;
 			children = (
+				147869422456D05800B64254 /* CopyBundleCovertible.swift */,
+				1478693F2456D05800B64254 /* Example */,
 				147869382456D03B00B64254 /* main.swift */,
 			);
 			path = CopyKit;
+			sourceTree = "<group>";
+		};
+		1478693F2456D05800B64254 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				147869402456D05800B64254 /* DefaultBundle.swift */,
+				147869412456D05800B64254 /* ResultDemo.swift */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +138,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				147869392456D03B00B64254 /* main.swift in Sources */,
+				147869452456D05800B64254 /* CopyBundleCovertible.swift in Sources */,
+				147869432456D05800B64254 /* DefaultBundle.swift in Sources */,
+				147869442456D05800B64254 /* ResultDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
