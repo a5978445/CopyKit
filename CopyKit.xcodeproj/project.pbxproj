@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143801E0245855500067E4CD /* Commandant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143801DF245855500067E4CD /* Commandant.framework */; };
+		143801E224585F1F0067E4CD /* StringsConvertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143801E124585F1F0067E4CD /* StringsConvertManager.swift */; };
 		147869392456D03B00B64254 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869382456D03B00B64254 /* main.swift */; };
 		147869432456D05800B64254 /* DefaultBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869402456D05800B64254 /* DefaultBundle.swift */; };
 		147869442456D05800B64254 /* ResultDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869412456D05800B64254 /* ResultDemo.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		143801DF245855500067E4CD /* Commandant.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Commandant.framework; path = CopyKit/Commandant.framework; sourceTree = "<group>"; };
+		143801E124585F1F0067E4CD /* StringsConvertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsConvertManager.swift; sourceTree = "<group>"; };
 		147869352456D03B00B64254 /* CopyKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CopyKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		147869382456D03B00B64254 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		147869402456D05800B64254 /* DefaultBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBundle.swift; sourceTree = "<group>"; };
@@ -38,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				143801E0245855500067E4CD /* Commandant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +52,7 @@
 		1478692C2456D03B00B64254 = {
 			isa = PBXGroup;
 			children = (
+				143801DF245855500067E4CD /* Commandant.framework */,
 				147869372456D03B00B64254 /* CopyKit */,
 				147869362456D03B00B64254 /* Products */,
 			);
@@ -64,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				147869422456D05800B64254 /* CopyBundleCovertible.swift */,
+				143801E124585F1F0067E4CD /* StringsConvertManager.swift */,
 				1478693F2456D05800B64254 /* Example */,
 				147869382456D03B00B64254 /* main.swift */,
 			);
@@ -139,6 +146,7 @@
 			files = (
 				147869392456D03B00B64254 /* main.swift in Sources */,
 				147869452456D05800B64254 /* CopyBundleCovertible.swift in Sources */,
+				143801E224585F1F0067E4CD /* StringsConvertManager.swift in Sources */,
 				147869432456D05800B64254 /* DefaultBundle.swift in Sources */,
 				147869442456D05800B64254 /* ResultDemo.swift in Sources */,
 			);
@@ -266,6 +274,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8ML633GQS;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CopyKit",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -277,6 +289,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8ML633GQS;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CopyKit",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

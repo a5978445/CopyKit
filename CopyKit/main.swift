@@ -12,165 +12,98 @@
 // 写入到指定路径
 
 import Foundation
+import Commandant
 
 
-
-
-
-// 入参
-// 1. bundle 路径
-// 2. 输出路径
-// 3. CopyBundleCovertible 实例类名
-
-
-// 2. TODO: bundle 需要动态处理,bundleConvertible 协议
-// 3. TODO: 批量读取文件
-// 4. TODO: 更加友好的参数提示
-// 5. TODO: 校验是否某个文件key缺少
-
-
-
-let outPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture"
-
-let folderPath = "/Users/litengfang/Desktop/FHAppArchitecture/FHAppArchitecture/HK.bundle"
-
-let CopyBundleCovertibleClassName = "DefaultBundle"
-
-
-// 查找指定文件夹下的 .lproj 文件
-// 由于不同语言的 .lproj key是相同的，所以这里只检查一种语言的key
-// 这里默认检查en
-
-
-/// 获取指定目录下, lproj 文件路径
-/// - Parameters:
-///   - path: 资源路径
-///   - region: lproj name
-func getLprojFile(path: String, lprojName: String = "en.lproj") throws -> URL {
-
-    var isDirectory: ObjCBool = false
-    
-    let lprojPath = "\(path)/\(lprojName)"
-
-    guard FileManager.default.fileExists(atPath: lprojPath, isDirectory: &isDirectory) else {
-        throw NSError(domain: "not found \(lprojName) in \(path)", code: 999, userInfo: nil)
-    }
-    
-    if isDirectory.boolValue {
-        return URL(fileURLWithPath: lprojPath)
-    } else {
-       throw NSError(domain: "\(lprojName) is not directory", code: 999, userInfo: nil)
-    }
-    
+struct ArgumentsError: Error {
     
 }
 
-
-func getAllLprojFile(in path: URL) throws -> [URL] {
-    let folders: [URL] = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+struct CopyConvertCommand: CommandProtocol {
+    typealias Options = CopyConvertOptions
     
+    typealias ClientError = ArgumentsError
     
-    let lprojs = folders.filter { $0.pathExtension == "lproj" }
-    guard lprojs.count > 0 else {
-        throw NSError(domain: "not found lproj file in \(path)", code: 999, userInfo: nil)
-    }
+//    typealias Options = LogOptions
+//
+    let verb = "convert"
+    let function = "map strings to swift file"
     
-    return lprojs
-}
-
-
-/// 获取 ****.lproj 下所有strings 文件
-/// - Parameter url: lproj 文件路径名
-func getAllStringsFile(url: URL) throws -> [URL] {
-    let stringsFile: [URL] = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
-        .filter {  $0.pathExtension == "strings"}
-    return stringsFile
-}
-
-
-/// 根据.strings 生成对应的swift code
-/// - Parameter url: strings path
-func covertStringsFileToSwiftSourceCode(url: URL) throws -> String {
-    
-    guard let dic = NSDictionary(contentsOf: url) as? [String: String] else {
-        throw NSError(domain: "invalid file: \(url)", code: 888, userInfo: nil)
-    }
-    
-    
-    var result = "struct Strings {\n"
-    
-    result += "\tenum Copy: String {\n"
-    
-    for (key,_) in dic {
-        result += "\t\tcase \(mapKey(key)) = \"\(key)\"\n"
-    }
-    
-    result += "\n"
-    
-    result += """
-    \t\tfunc localized() -> String {
-    \t\t\treturn bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
-    \t\t}\n
-    """
-    
-    result += "\n"
-    
-    result += """
-    \t\tfunc bundle() -> Bundle {
-    \t\t\treturn \(CopyBundleCovertibleClassName).shared.asBundle()
-    \t\t}\n
-    """
-    
-    result += "\t}\n"
-    
-    result += "}\n"
-    
-    print(result)
-    print("*****")
-    print(dic)
-    return result
-}
-
-/// 将key 做一下处理，防止因为非法key，导致输出文件编译错误
-///
-func mapKey(_ key: String) -> String {
-    /// 将空格 转化为 _
-    let key = key.replacingOccurrences(of: " ", with: "_")
-    
-    
-    // 去掉空格，单词首字母大写
-    let keys = key.split(separator: String.Element("_")).map { $0.capitalized }
-    var resultKey = keys.reduce("") { $0 + $1 }
-    
-    // 首单词首字母小写
-    if let firstLetter = resultKey.first {
+    func run(_ options: CopyConvertOptions) -> Result<(), ArgumentsError> {
+        // Use the parsed options to do something interesting here.
+      
+        print("********")
+        let outPath = options.outPath
         
-        resultKey = resultKey.replacingCharacters(in: resultKey.startIndex...resultKey.startIndex, with: firstLetter.lowercased())
+        let folderPath = options.folderPath
+        
+        let copyBundleCovertibleClassName = options.copyBundleCovertibleClassName
+        
+        let manager = StringsConvertManager(outPath: outPath, folderPath: folderPath, copyBundleCovertibleClassName: copyBundleCovertibleClassName)
+        do {
+            try manager.convertStringsFile()
+            return Result<(), ArgumentsError>.success(())
+        } catch  {
+            return Result<(), ArgumentsError>.failure(ArgumentsError())
+        }
+        
+
+        
+        
+    }
+}
+
+struct CopyConvertOptions: OptionsProtocol {
+    let outPath: String
+    let folderPath: String
+    let copyBundleCovertibleClassName: String
+    
+    static func create(_ outPath: String) -> (String) -> (String) -> CopyConvertOptions {
+        return { folderPath in { copyBundleCovertibleClassName in CopyConvertOptions(outPath: outPath, folderPath: folderPath, copyBundleCovertibleClassName: copyBundleCovertibleClassName) } }
     }
     
-    return resultKey
-    
+    static func evaluate(_ m: CommandMode) -> Result<CopyConvertOptions, CommandantError<ArgumentsError>> {
+        return create
+            <*> m <| Option(key: "outPath", defaultValue: "0", usage: "the strings file output path")
+            <*> m <| Option(key: "folderPath", defaultValue: "false", usage: "strings file bundle path")
+            <*> m <| Option(key: "copyBundleCovertibleClassName", defaultValue: "false", usage: "copyBundleCovertibleImplClassName")
+     //       <*> m <| Argument(usage: "the log to read")
+    }
 }
 
+let commands = CommandRegistry<ArgumentsError>()
+commands.register(CopyConvertCommand())
+commands.register(HelpCommand(registry: commands))
+
+var arguments = CommandLine.arguments
+
+// Remove the executable name.
+assert(!arguments.isEmpty)
+arguments.remove(at: 0)
 
 
-let regionlprojURL = try getLprojFile(path: folderPath)
+if let verb = arguments.first {
+    // Remove the command name.
+    arguments.remove(at: 0)
+ 
 
-
-let stringsFile = try getAllStringsFile(url: regionlprojURL)
-
-// 读取strings file
-try stringsFile.map { file -> (String, String) in
-    
-    let fileName = file.lastPathComponent.components(separatedBy: ".")[0]
-    
-    let result = try covertStringsFileToSwiftSourceCode(url: file)
-    
-    return (fileName, result)
+    if let result = commands.run(command: verb, arguments: arguments) {
+        // Handle success or failure.
+        switch result {
+        case .success(()):
+            print("*** success ***")
+        case .failure(let error):
+            print(error)
+        }
+        
+    } else {
+        // Unrecognized command.
+         print("Unrecognized command.")
+    }
+} else {
+    // No command given.
+     print("No command given")
 }
-    // 写入指定文件
-    .forEach { (fileName, sourceString) in
-        try sourceString.write(to: URL.init(fileURLWithPath: outPath + "/\(fileName).swift"), atomically: true, encoding: String.Encoding.utf8)
-}
+
 
 
