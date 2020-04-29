@@ -14,7 +14,7 @@ struct Strings {
         case homePageTitleLabel = "home_page_title_label"
 
         func localized() -> String {
-            return bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
+            return bundle().localizedString(forKey: rawValue, value: nil, table: "Copy")
         }
 
         func bundle() -> Bundle {

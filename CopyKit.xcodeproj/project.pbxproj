@@ -37,6 +37,7 @@
 		148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */; };
 		148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
 		148D0F26245961F0004F313E /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F25245961F0004F313E /* Root.swift */; };
+		148D0F2A245963B9004F313E /* CopyConvertCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F29245963B9004F313E /* CopyConvertCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +73,7 @@
 		148D0F1B24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBundleProvider.swift; sourceTree = "<group>"; };
 		148D0F25245961F0004F313E /* Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
+		148D0F29245963B9004F313E /* CopyConvertCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyConvertCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +117,8 @@
 		147869372456D03B00B64254 /* CopyKit */ = {
 			isa = PBXGroup;
 			children = (
-				147869422456D05800B64254 /* CopyBundleCovertible.swift */,
-				143801E124585F1F0067E4CD /* StringsConvertManager.swift */,
+				148D0F28245963A6004F313E /* Commands */,
+				148D0F2724596379004F313E /* Core */,
 				1478693F2456D05800B64254 /* Example */,
 				147869382456D03B00B64254 /* main.swift */,
 			);
@@ -155,6 +157,23 @@
 				148D0F25245961F0004F313E /* Root.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		148D0F2724596379004F313E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				147869422456D05800B64254 /* CopyBundleCovertible.swift */,
+				143801E124585F1F0067E4CD /* StringsConvertManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		148D0F28245963A6004F313E /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				148D0F29245963B9004F313E /* CopyConvertCommand.swift */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +296,7 @@
 			files = (
 				147869392456D03B00B64254 /* main.swift in Sources */,
 				147869452456D05800B64254 /* CopyBundleCovertible.swift in Sources */,
+				148D0F2A245963B9004F313E /* CopyConvertCommand.swift in Sources */,
 				143801E224585F1F0067E4CD /* StringsConvertManager.swift in Sources */,
 				147869432456D05800B64254 /* DefaultBundle.swift in Sources */,
 				147869442456D05800B64254 /* ResultDemo.swift in Sources */,
