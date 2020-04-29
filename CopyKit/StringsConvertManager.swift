@@ -34,12 +34,17 @@ class StringsConvertManager: NSObject {
 
             let fileName = file.lastPathComponent.components(separatedBy: ".")[0]
 
-            let result = try covertStringsFileToSwiftSourceCode(url: file)
+            let result = try covertStringsFileToSwiftSourceCode(url: file, tableName: fileName)
 
             return (fileName, result)
         }
         // 写入指定文件
         .forEach { fileName, sourceString in
+
+            if !FileManager.default.fileExists(atPath: outPath) {
+                try FileManager.default.createDirectory(atPath: outPath, withIntermediateDirectories: true, attributes: nil)
+            }
+
             try sourceString.write(to: URL(fileURLWithPath: outPath + "/\(fileName).swift"), atomically: true, encoding: String.Encoding.utf8)
         }
     }
@@ -89,14 +94,14 @@ class StringsConvertManager: NSObject {
 
     /// 根据.strings 生成对应的swift code
     /// - Parameter url: strings path
-    func covertStringsFileToSwiftSourceCode(url: URL) throws -> String {
+    func covertStringsFileToSwiftSourceCode(url: URL, tableName: String) throws -> String {
         guard let dic = NSDictionary(contentsOf: url) as? [String: String] else {
             throw NSError(domain: "invalid file: \(url)", code: 888, userInfo: nil)
         }
 
         var result = "struct Strings {\n"
 
-        result += "\tenum Copy: String {\n"
+        result += "\tenum \(tableName): String {\n"
 
         for (key, _) in dic {
             result += "\t\tcase \(mapKey(key)) = \"\(key)\"\n"
@@ -106,7 +111,7 @@ class StringsConvertManager: NSObject {
 
         result += """
         \t\tfunc localized() -> String {
-        \t\t\treturn bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
+        \t\t\treturn bundle().localizedString(forKey: rawValue, value: nil, table: "\(tableName)")
         \t\t}\n
         """
 
@@ -123,8 +128,6 @@ class StringsConvertManager: NSObject {
         result += "}\n"
 
         print(result)
-        print("*****")
-        print(dic)
         return result
     }
 

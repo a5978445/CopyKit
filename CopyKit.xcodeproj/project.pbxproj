@@ -36,6 +36,7 @@
 		148D0F1924590AA5004F313E /* HK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F1824590AA5004F313E /* HK.bundle */; };
 		148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */; };
 		148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
+		148D0F26245961F0004F313E /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F25245961F0004F313E /* Root.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +71,7 @@
 		148D0F1A24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		148D0F1B24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBundleProvider.swift; sourceTree = "<group>"; };
+		148D0F25245961F0004F313E /* Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		148D0F0524590A6A004F313E /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				148D0F24245961F0004F313E /* Resource */,
 				148D0F1824590AA5004F313E /* HK.bundle */,
 				148D0F0624590A6A004F313E /* AppDelegate.swift */,
 				148D0F0824590A6A004F313E /* SceneDelegate.swift */,
@@ -144,6 +147,14 @@
 				148D0F1424590A6C004F313E /* Info.plist */,
 			);
 			path = SampleApp;
+			sourceTree = "<group>";
+		};
+		148D0F24245961F0004F313E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				148D0F25245961F0004F313E /* Root.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				148D0F0924590A6A004F313E /* SceneDelegate.swift in Sources */,
 				148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */,
 				148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */,
+				148D0F26245961F0004F313E /* Root.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,14 @@
+import UIKit
 struct Strings {
-	enum Copy: String {
+	enum Root: String {
 		case age = "age"
-		case enabled = "Enabled"
 		case noneGiven = "none given"
-		case group = "Group"
 		case name = "Name"
+		case enabled = "Enabled"
+		case group = "Group"
 
 		func localized() -> String {
-			return bundle().localizedString(forKey: rawValue, value: nil, table: "copy")
+			return bundle().localizedString(forKey: rawValue, value: nil, table: "Root")
 		}
 
 		func bundle() -> Bundle {
