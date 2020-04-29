@@ -9,7 +9,8 @@
 import Cocoa
 import Commandant
 
-struct ArgumentsError: Error {
+enum ArgumentsError: Error {
+    case wraped(Error)
 }
 
 struct CopyConvertCommand: CommandProtocol {
@@ -29,12 +30,12 @@ struct CopyConvertCommand: CommandProtocol {
 
         let copyBundleCovertibleClassName = options.copyBundleCovertibleClassName
 
-        let manager = StringsConvertManager(outPath: outPath, folderPath: folderPath, copyBundleCovertibleClassName: copyBundleCovertibleClassName)
+        let manager = StringsConvertManager(outPath: outPath, folderPath: folderPath, copyBundleCovertibleClassName: copyBundleCovertibleClassName, platform: options.platform)
         do {
             try manager.convertStringsFile()
             return Result<(), ArgumentsError>.success(())
         } catch {
-            return Result<(), ArgumentsError>.failure(ArgumentsError())
+            return Result<(), ArgumentsError>.failure(ArgumentsError.wraped(error))
         }
     }
 }
@@ -43,9 +44,16 @@ struct CopyConvertOptions: OptionsProtocol {
     let outPath: String
     let folderPath: String
     let copyBundleCovertibleClassName: String
+    let platform: String
 
-    static func create(_ outPath: String) -> (String) -> (String) -> CopyConvertOptions {
-        return { folderPath in { copyBundleCovertibleClassName in CopyConvertOptions(outPath: outPath, folderPath: folderPath, copyBundleCovertibleClassName: copyBundleCovertibleClassName) } }
+    static func create(_ outPath: String) -> (String) -> (String) -> (String) -> CopyConvertOptions {
+        return {
+            folderPath in {
+                copyBundleCovertibleClassName in {
+                    platform in CopyConvertOptions(outPath: outPath, folderPath: folderPath, copyBundleCovertibleClassName: copyBundleCovertibleClassName, platform: platform)
+                }
+            }
+        }
     }
 
     static func evaluate(_ m: CommandMode) -> Result<CopyConvertOptions, CommandantError<ArgumentsError>> {
@@ -53,6 +61,7 @@ struct CopyConvertOptions: OptionsProtocol {
             <*> m <| Option(key: "outPath", defaultValue: "0", usage: "the strings file output path")
             <*> m <| Option(key: "folderPath", defaultValue: "false", usage: "strings file bundle path")
             <*> m <| Option(key: "copyBundleCovertibleClassName", defaultValue: "false", usage: "copyBundleCovertibleImplClassName")
+            <*> m <| Option(key: "platform", defaultValue: "iOS", usage: "platform: iOS or MacOS")
         //       <*> m <| Argument(usage: "the log to read")
     }
 }

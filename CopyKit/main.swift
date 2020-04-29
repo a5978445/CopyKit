@@ -24,7 +24,6 @@
 import Commandant
 import Foundation
 
-
 let commands = CommandRegistry<ArgumentsError>()
 commands.register(CopyConvertCommand())
 commands.register(HelpCommand(registry: commands))

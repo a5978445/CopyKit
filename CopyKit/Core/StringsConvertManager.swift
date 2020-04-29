@@ -18,10 +18,15 @@ class StringsConvertManager: NSObject {
     // CopyBundleCovertible 实例类名
     var copyBundleCovertibleClassName: String
 
-    init(outPath: String, folderPath: String, copyBundleCovertibleClassName: String) {
+    var platform: String
+
+    init(outPath: String, folderPath: String, copyBundleCovertibleClassName: String, platform: String) {
         self.outPath = outPath
         self.folderPath = folderPath
         self.copyBundleCovertibleClassName = copyBundleCovertibleClassName
+        self.platform = platform
+        
+        
     }
 
     func convertStringsFile() throws {
@@ -99,7 +104,26 @@ class StringsConvertManager: NSObject {
             throw NSError(domain: "invalid file: \(url)", code: 888, userInfo: nil)
         }
 
-        var result = "struct Strings {\n"
+        print(platform)
+        print(outPath)
+        print(folderPath)
+        print(copyBundleCovertibleClassName)
+        
+        var result = ""
+
+        result += """
+        //  Created by 李腾芳 on 2020/4/28.
+        //  本文件由Copy Kit 自动生成，切勿手动编辑
+        //\n\n
+        """
+
+        if platform == "iOS" {
+            result += "import UIKit \n\n"
+        } else {
+            result += "import CoCoa \n\n"
+        }
+
+        result += "struct Strings {\n"
 
         result += "\tenum \(tableName): String {\n"
 
