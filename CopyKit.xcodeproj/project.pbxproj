@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		148D0F1F24595B1D004F313E /* UpdateCopySourceCode */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 148D0F2024595B1D004F313E /* Build configuration list for PBXAggregateTarget "UpdateCopySourceCode" */;
+			buildPhases = (
+				148D0F2324595B28004F313E /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UpdateCopySourceCode;
+			productName = UpdateCopySourceCode;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		143801E0245855500067E4CD /* Commandant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143801DF245855500067E4CD /* Commandant.framework */; };
 		143801E224585F1F0067E4CD /* StringsConvertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143801E124585F1F0067E4CD /* StringsConvertManager.swift */; };
@@ -13,6 +27,15 @@
 		147869432456D05800B64254 /* DefaultBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869402456D05800B64254 /* DefaultBundle.swift */; };
 		147869442456D05800B64254 /* ResultDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869412456D05800B64254 /* ResultDemo.swift */; };
 		147869452456D05800B64254 /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
+		148D0F0724590A6A004F313E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F0624590A6A004F313E /* AppDelegate.swift */; };
+		148D0F0924590A6A004F313E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F0824590A6A004F313E /* SceneDelegate.swift */; };
+		148D0F0B24590A6A004F313E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F0A24590A6A004F313E /* ViewController.swift */; };
+		148D0F0E24590A6A004F313E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F0C24590A6A004F313E /* Main.storyboard */; };
+		148D0F1024590A6C004F313E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F0F24590A6C004F313E /* Assets.xcassets */; };
+		148D0F1324590A6C004F313E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F1124590A6C004F313E /* LaunchScreen.storyboard */; };
+		148D0F1924590AA5004F313E /* HK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F1824590AA5004F313E /* HK.bundle */; };
+		148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */; };
+		148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +58,18 @@
 		147869402456D05800B64254 /* DefaultBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBundle.swift; sourceTree = "<group>"; };
 		147869412456D05800B64254 /* ResultDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultDemo.swift; sourceTree = "<group>"; };
 		147869422456D05800B64254 /* CopyBundleCovertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyBundleCovertible.swift; sourceTree = "<group>"; };
+		148D0F0424590A6A004F313E /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		148D0F0624590A6A004F313E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		148D0F0824590A6A004F313E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		148D0F0A24590A6A004F313E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		148D0F0D24590A6A004F313E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		148D0F0F24590A6C004F313E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		148D0F1224590A6C004F313E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		148D0F1424590A6C004F313E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		148D0F1824590AA5004F313E /* HK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HK.bundle; sourceTree = "<group>"; };
+		148D0F1A24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		148D0F1B24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBundleProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		148D0F0124590A6A004F313E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,6 +96,7 @@
 			children = (
 				143801DF245855500067E4CD /* Commandant.framework */,
 				147869372456D03B00B64254 /* CopyKit */,
+				148D0F0524590A6A004F313E /* SampleApp */,
 				147869362456D03B00B64254 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				147869352456D03B00B64254 /* CopyKit */,
+				148D0F0424590A6A004F313E /* SampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +130,22 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		148D0F0524590A6A004F313E /* SampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				148D0F1824590AA5004F313E /* HK.bundle */,
+				148D0F0624590A6A004F313E /* AppDelegate.swift */,
+				148D0F0824590A6A004F313E /* SceneDelegate.swift */,
+				148D0F0A24590A6A004F313E /* ViewController.swift */,
+				148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */,
+				148D0F0C24590A6A004F313E /* Main.storyboard */,
+				148D0F0F24590A6C004F313E /* Assets.xcassets */,
+				148D0F1124590A6C004F313E /* LaunchScreen.storyboard */,
+				148D0F1424590A6C004F313E /* Info.plist */,
+			);
+			path = SampleApp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +166,23 @@
 			productReference = 147869352456D03B00B64254 /* CopyKit */;
 			productType = "com.apple.product-type.tool";
 		};
+		148D0F0324590A6A004F313E /* SampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148D0F1724590A6C004F313E /* Build configuration list for PBXNativeTarget "SampleApp" */;
+			buildPhases = (
+				148D0F0024590A6A004F313E /* Sources */,
+				148D0F0124590A6A004F313E /* Frameworks */,
+				148D0F0224590A6A004F313E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleApp;
+			productName = SampleApp;
+			productReference = 148D0F0424590A6A004F313E /* SampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,6 +196,12 @@
 					147869342456D03B00B64254 = {
 						CreatedOnToolsVersion = 11.3;
 					};
+					148D0F0324590A6A004F313E = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					148D0F1F24595B1D004F313E = {
+						CreatedOnToolsVersion = 11.3;
+					};
 				};
 			};
 			buildConfigurationList = 147869302456D03B00B64254 /* Build configuration list for PBXProject "CopyKit" */;
@@ -128,6 +211,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 1478692C2456D03B00B64254;
 			productRefGroup = 147869362456D03B00B64254 /* Products */;
@@ -135,9 +219,45 @@
 			projectRoot = "";
 			targets = (
 				147869342456D03B00B64254 /* CopyKit */,
+				148D0F0324590A6A004F313E /* SampleApp */,
+				148D0F1F24595B1D004F313E /* UpdateCopySourceCode */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		148D0F0224590A6A004F313E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D0F1924590AA5004F313E /* HK.bundle in Resources */,
+				148D0F1324590A6C004F313E /* LaunchScreen.storyboard in Resources */,
+				148D0F1024590A6C004F313E /* Assets.xcassets in Resources */,
+				148D0F0E24590A6A004F313E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		148D0F2324595B28004F313E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${SRCROOT}/tools/CopyKit  convert --folderPath ${SRCROOT}/SampleApp/HK.bundle --copyBundleCovertibleClassName CopyBundleProvider --outPath ${SRCROOT}/SampleApp/Resource\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		147869312456D03B00B64254 /* Sources */ = {
@@ -152,13 +272,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		148D0F0024590A6A004F313E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D0F0B24590A6A004F313E /* ViewController.swift in Sources */,
+				148D0F0724590A6A004F313E /* AppDelegate.swift in Sources */,
+				148D0F0924590A6A004F313E /* SceneDelegate.swift in Sources */,
+				148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */,
+				148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		148D0F0C24590A6A004F313E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				148D0F0D24590A6A004F313E /* Base */,
+				148D0F1A24590AE8004F313E /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		148D0F1124590A6C004F313E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				148D0F1224590A6C004F313E /* Base */,
+				148D0F1B24590AE8004F313E /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1478693A2456D03B00B64254 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -219,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -298,6 +453,65 @@
 			};
 			name = Release;
 		};
+		148D0F1524590A6C004F313E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8ML633GQS;
+				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hsbc.SampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		148D0F1624590A6C004F313E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8ML633GQS;
+				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hsbc.SampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		148D0F2124595B1D004F313E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8ML633GQS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		148D0F2224595B1D004F313E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8ML633GQS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -315,6 +529,24 @@
 			buildConfigurations = (
 				1478693D2456D03B00B64254 /* Debug */,
 				1478693E2456D03B00B64254 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148D0F1724590A6C004F313E /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148D0F1524590A6C004F313E /* Debug */,
+				148D0F1624590A6C004F313E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148D0F2024595B1D004F313E /* Build configuration list for PBXAggregateTarget "UpdateCopySourceCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148D0F2124595B1D004F313E /* Debug */,
+				148D0F2224595B1D004F313E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

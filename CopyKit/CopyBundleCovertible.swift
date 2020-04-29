@@ -6,10 +6,14 @@
 //  Copyright © 2020 HSBC Holdings plc. All rights reserved.
 //
 
+#if os(iOS)
+import UIKit
+#else
 import Cocoa
+#endif
 
 protocol CopyBundleCovertible {
     static var shared: Self { get }
-  //  static func shared() -> Self
+    //  static func shared() -> Self
     func asBundle() -> Bundle
 }
