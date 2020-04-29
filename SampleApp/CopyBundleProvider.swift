@@ -28,17 +28,23 @@ final class CopyBundleProvider: NSObject {
     }
 
     func updateBundle() -> Bundle {
-        let language = languageCode?.rawValue ?? Locale.current.localLanguage
-        guard var path = Bundle.main.path(forResource: "HK", ofType: "bundle") else {
-            fatalError("not found HK.bundle")
+        
+        guard let areCode = Bundle.main.infoDictionary?["Area"] as? String else {
+            fatalError("not set area code in info.plist")
         }
-
+        
+        
+        let language = languageCode?.rawValue ?? Locale.current.localLanguage
+        guard var path = Bundle.main.path(forResource: areCode, ofType: "bundle") else {
+            fatalError("not found \(areCode).bundle")
+        }
+        
         path += "/\(language).lproj"
-
+        
         guard let localizedStringBundle = Bundle(path: path) else {
             fatalError("not found \(path)")
         }
-
+        
         return localizedStringBundle
     }
 

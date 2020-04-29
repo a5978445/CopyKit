@@ -11,10 +11,11 @@
 // 将其转换为swift文件
 // 写入到指定路径
 
-// TODO: 区分 绝对路径和相对路径
+
 // 2. TODO: bundle 需要动态处理,bundleConvertible 协议
 // 3. TODO: 批量读取文件
 // 5. TODO: 校验是否某个文件key缺少
+// Demo 演示不同地区加载的效果
 
 // TODO: 校验strings file md5 值 和pod原理差不多，使用lock文件锁住，这样的话，不需要每次都重新生成souce code文件
 // TODO: hook git的commit 操作，只有在strings file改动下，才运行该脚本

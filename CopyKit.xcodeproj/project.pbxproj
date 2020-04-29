@@ -36,8 +36,18 @@
 		148D0F1924590AA5004F313E /* HK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F1824590AA5004F313E /* HK.bundle */; };
 		148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */; };
 		148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
-		148D0F26245961F0004F313E /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F25245961F0004F313E /* Root.swift */; };
 		148D0F2A245963B9004F313E /* CopyConvertCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F29245963B9004F313E /* CopyConvertCommand.swift */; };
+		148D0F3124596C6D004F313E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F0A24590A6A004F313E /* ViewController.swift */; };
+		148D0F3224596C6D004F313E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F0624590A6A004F313E /* AppDelegate.swift */; };
+		148D0F3324596C6D004F313E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F0824590A6A004F313E /* SceneDelegate.swift */; };
+		148D0F3424596C6D004F313E /* CopyBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */; };
+		148D0F3524596C6D004F313E /* CopyBundleCovertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147869422456D05800B64254 /* CopyBundleCovertible.swift */; };
+		148D0F3B24596C6D004F313E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F1124590A6C004F313E /* LaunchScreen.storyboard */; };
+		148D0F3C24596C6D004F313E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F0F24590A6C004F313E /* Assets.xcassets */; };
+		148D0F3D24596C6D004F313E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F0C24590A6A004F313E /* Main.storyboard */; };
+		148D0F4424596F72004F313E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F4324596F72004F313E /* Home.swift */; };
+		148D0F4624596F8B004F313E /* UK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148D0F4524596F8B004F313E /* UK.bundle */; };
+		148D0F4724597087004F313E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D0F4324596F72004F313E /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,7 +70,7 @@
 		147869402456D05800B64254 /* DefaultBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBundle.swift; sourceTree = "<group>"; };
 		147869412456D05800B64254 /* ResultDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultDemo.swift; sourceTree = "<group>"; };
 		147869422456D05800B64254 /* CopyBundleCovertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyBundleCovertible.swift; sourceTree = "<group>"; };
-		148D0F0424590A6A004F313E /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		148D0F0424590A6A004F313E /* HKSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148D0F0624590A6A004F313E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148D0F0824590A6A004F313E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		148D0F0A24590A6A004F313E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,8 +82,10 @@
 		148D0F1A24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		148D0F1B24590AE8004F313E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		148D0F1C24590B4A004F313E /* CopyBundleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBundleProvider.swift; sourceTree = "<group>"; };
-		148D0F25245961F0004F313E /* Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		148D0F29245963B9004F313E /* CopyConvertCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyConvertCommand.swift; sourceTree = "<group>"; };
+		148D0F4124596C6D004F313E /* UKSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		148D0F4324596F72004F313E /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		148D0F4524596F8B004F313E /* UK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UK.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		148D0F0124590A6A004F313E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148D0F3724596C6D004F313E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -109,7 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				147869352456D03B00B64254 /* CopyKit */,
-				148D0F0424590A6A004F313E /* SampleApp.app */,
+				148D0F0424590A6A004F313E /* HKSampleApp.app */,
+				148D0F4124596C6D004F313E /* UKSampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				148D0F24245961F0004F313E /* Resource */,
-				148D0F1824590AA5004F313E /* HK.bundle */,
 				148D0F0624590A6A004F313E /* AppDelegate.swift */,
 				148D0F0824590A6A004F313E /* SceneDelegate.swift */,
 				148D0F0A24590A6A004F313E /* ViewController.swift */,
@@ -154,7 +173,9 @@
 		148D0F24245961F0004F313E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				148D0F25245961F0004F313E /* Root.swift */,
+				148D0F4524596F8B004F313E /* UK.bundle */,
+				148D0F4324596F72004F313E /* Home.swift */,
+				148D0F1824590AA5004F313E /* HK.bundle */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -196,9 +217,9 @@
 			productReference = 147869352456D03B00B64254 /* CopyKit */;
 			productType = "com.apple.product-type.tool";
 		};
-		148D0F0324590A6A004F313E /* SampleApp */ = {
+		148D0F0324590A6A004F313E /* HKSampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 148D0F1724590A6C004F313E /* Build configuration list for PBXNativeTarget "SampleApp" */;
+			buildConfigurationList = 148D0F1724590A6C004F313E /* Build configuration list for PBXNativeTarget "HKSampleApp" */;
 			buildPhases = (
 				148D0F0024590A6A004F313E /* Sources */,
 				148D0F0124590A6A004F313E /* Frameworks */,
@@ -208,9 +229,26 @@
 			);
 			dependencies = (
 			);
-			name = SampleApp;
+			name = HKSampleApp;
 			productName = SampleApp;
-			productReference = 148D0F0424590A6A004F313E /* SampleApp.app */;
+			productReference = 148D0F0424590A6A004F313E /* HKSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		148D0F2F24596C6D004F313E /* UKSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148D0F3E24596C6D004F313E /* Build configuration list for PBXNativeTarget "UKSampleApp" */;
+			buildPhases = (
+				148D0F3024596C6D004F313E /* Sources */,
+				148D0F3724596C6D004F313E /* Frameworks */,
+				148D0F3824596C6D004F313E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UKSampleApp;
+			productName = SampleApp;
+			productReference = 148D0F4124596C6D004F313E /* UKSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -249,8 +287,9 @@
 			projectRoot = "";
 			targets = (
 				147869342456D03B00B64254 /* CopyKit */,
-				148D0F0324590A6A004F313E /* SampleApp */,
+				148D0F0324590A6A004F313E /* HKSampleApp */,
 				148D0F1F24595B1D004F313E /* UpdateCopySourceCode */,
+				148D0F2F24596C6D004F313E /* UKSampleApp */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +303,17 @@
 				148D0F1324590A6C004F313E /* LaunchScreen.storyboard in Resources */,
 				148D0F1024590A6C004F313E /* Assets.xcassets in Resources */,
 				148D0F0E24590A6A004F313E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148D0F3824596C6D004F313E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D0F3B24596C6D004F313E /* LaunchScreen.storyboard in Resources */,
+				148D0F4624596F8B004F313E /* UK.bundle in Resources */,
+				148D0F3C24596C6D004F313E /* Assets.xcassets in Resources */,
+				148D0F3D24596C6D004F313E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +335,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${SRCROOT}/tools/CopyKit  convert --folderPath ${SRCROOT}/SampleApp/HK.bundle --copyBundleCovertibleClassName CopyBundleProvider --outPath ${SRCROOT}/SampleApp/Resource\n\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${SRCROOT}/tools/CopyKit  convert --folderPath ${SRCROOT}/SampleApp/Resource/HK.bundle --copyBundleCovertibleClassName CopyBundleProvider --outPath ${SRCROOT}/SampleApp/Resource\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -311,8 +361,21 @@
 				148D0F0724590A6A004F313E /* AppDelegate.swift in Sources */,
 				148D0F0924590A6A004F313E /* SceneDelegate.swift in Sources */,
 				148D0F1D24590B4A004F313E /* CopyBundleProvider.swift in Sources */,
+				148D0F4424596F72004F313E /* Home.swift in Sources */,
 				148D0F1E24591595004F313E /* CopyBundleCovertible.swift in Sources */,
-				148D0F26245961F0004F313E /* Root.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148D0F3024596C6D004F313E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148D0F3124596C6D004F313E /* ViewController.swift in Sources */,
+				148D0F3224596C6D004F313E /* AppDelegate.swift in Sources */,
+				148D0F3324596C6D004F313E /* SceneDelegate.swift in Sources */,
+				148D0F3424596C6D004F313E /* CopyBundleProvider.swift in Sources */,
+				148D0F4724597087004F313E /* Home.swift in Sources */,
+				148D0F3524596C6D004F313E /* CopyBundleCovertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +551,7 @@
 		148D0F1524590A6C004F313E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AREA_CODE = HK;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8ML633GQS;
@@ -508,6 +572,7 @@
 		148D0F1624590A6C004F313E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AREA_CODE = HK;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8ML633GQS;
@@ -544,6 +609,49 @@
 			};
 			name = Release;
 		};
+		148D0F3F24596C6D004F313E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AREA_CODE = UK;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8ML633GQS;
+				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hsbc.SampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		148D0F4024596C6D004F313E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AREA_CODE = UK;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8ML633GQS;
+				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hsbc.SampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -565,7 +673,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		148D0F1724590A6C004F313E /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
+		148D0F1724590A6C004F313E /* Build configuration list for PBXNativeTarget "HKSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				148D0F1524590A6C004F313E /* Debug */,
@@ -579,6 +687,15 @@
 			buildConfigurations = (
 				148D0F2124595B1D004F313E /* Debug */,
 				148D0F2224595B1D004F313E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148D0F3E24596C6D004F313E /* Build configuration list for PBXNativeTarget "UKSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148D0F3F24596C6D004F313E /* Debug */,
+				148D0F4024596C6D004F313E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

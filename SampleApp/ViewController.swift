@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     func updateText() {
-        titleLabel.text = Strings.Root.age.localized()
+        titleLabel.text = Strings.Home.helloWorld.localized()
     }
 
     override func viewWillAppear(_ animated: Bool) {

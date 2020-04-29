@@ -5,15 +5,16 @@
 import UIKit 
 
 struct Strings {
-	enum Root: String {
-		case group = "Group"
-		case enabled = "Enabled"
+	enum Home: String {
 		case age = "age"
+		case enabled = "Enabled"
 		case noneGiven = "none given"
+		case helloWorld = "hello world"
 		case name = "Name"
+		case group = "Group"
 
 		func localized() -> String {
-			return bundle().localizedString(forKey: rawValue, value: nil, table: "Root")
+			return bundle().localizedString(forKey: rawValue, value: nil, table: "Home")
 		}
 
 		func bundle() -> Bundle {
