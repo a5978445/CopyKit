@@ -12,13 +12,26 @@ targets:
     dependencies:
       - framework: Commandant.framework
 
-  SampleApp:
+  HKSampleApp:
     type: application
     sources:
       - SampleApp
       - CopyKit/Core/CopyBundleCovertible.swift
     platform: iOS
     deploymentTarget: "13.0"
+    settings: 
+      "AREA_CODE": "HK"
+
+
+  UKSampleApp:
+    type: application
+    sources:
+      - SampleApp
+      - CopyKit/Core/CopyBundleCovertible.swift
+    platform: iOS
+    deploymentTarget: "13.0"
+    settings: 
+      "AREA_CODE": "UK"
 
 
   ConvertCommand:
