@@ -6,11 +6,11 @@ import UIKit
 
 struct Strings {
 	enum Home: String {
+		case enabled = "Enabled"
+		case group = "Group"
 		case name = "Name"
 		case age = "age"
 		case helloWorld = "hello world"
-		case group = "Group"
-		case enabled = "Enabled"
 		case noneGiven = "none given"
 
 		func localized() -> String {

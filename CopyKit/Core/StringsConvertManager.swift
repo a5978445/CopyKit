@@ -127,7 +127,7 @@ class StringsConvertManager: NSObject {
 
         result += "\tenum \(tableName): String {\n"
 
-        for (key, _) in dic {
+        for (key, _) in dic.sorted(by: { $0.key < $1.key } )   {
             result += "\t\tcase \(mapKey(key)) = \"\(key)\"\n"
         }
 
