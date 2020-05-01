@@ -104,10 +104,10 @@ class StringsConvertManager: NSObject {
             throw NSError(domain: "invalid file: \(url)", code: 888, userInfo: nil)
         }
 
-        print(platform)
-        print(outPath)
-        print(folderPath)
-        print(copyBundleCovertibleClassName)
+//        print(platform)
+//        print(outPath)
+//        print(folderPath)
+//        print(copyBundleCovertibleClassName)
         
         var result = ""
 

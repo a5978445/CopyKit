@@ -58,10 +58,10 @@ struct CopyConvertOptions: OptionsProtocol {
 
     static func evaluate(_ m: CommandMode) -> Result<CopyConvertOptions, CommandantError<ArgumentsError>> {
         return create
-            <*> m <| Option(key: "outPath", defaultValue: "0", usage: "the strings file output path")
+            <*> m <| Option(key: "outPath", defaultValue: "0", usage: "the source code files output path")
             <*> m <| Option(key: "folderPath", defaultValue: "false", usage: "strings file bundle path")
-            <*> m <| Option(key: "copyBundleCovertibleClassName", defaultValue: "false", usage: "copyBundleCovertibleImplClassName")
+            <*> m <| Option(key: "copyBundleCovertibleClassName", defaultValue: "false", usage: "copyBundleCovertibleImplClassName: this class implementation copyBundleCovertible protocol, can't empty")
             <*> m <| Option(key: "platform", defaultValue: "iOS", usage: "platform: iOS or MacOS")
-        //       <*> m <| Argument(usage: "the log to read")
+       //     <*> m <| Argument(usage: "the log to read")
     }
 }
