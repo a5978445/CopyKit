@@ -1,9 +1,35 @@
 CopyKit
 =====
 
-## 目标
-做一个copy管理的工具，读取strings file,自动生成source code
+## 描述
+优雅的语言国际化方案，自动读取strings file ，生成source code, 让手动更新copy成为历史
 
-## Step
-1. 生成单个文件夹下的copy 
-2. 对不同的地区的copy 进行比对， 比对是否有缺失，例如en 下某个key缺失， 给出警告， 鉴于我们的app通常是多地区的，所以输入的文件夹可以是多个，或者某个文件下所有各个bundle
+
+## 怎样集成
+* download 代码，并且编译CopyKit
+* 将CopyKit/Core/CopyBundleCovertible.swift copy 到你的主工程
+* 定义一个主体类，支持CopyBundleCovertible 协议
+* 添加build script,例如：
+
+```sh
+
+# `${SRCROOT}/tools/CopyKit` 编译生成的脚本程序
+# 具体参数意义详见：`${SRCROOT}/tools/CopyKit  help convert`
+
+${SRCROOT}/tools/CopyKit  convert --folderPath ${SRCROOT}/SampleApp/Resource/HK.bundle --copyBundleCovertibleClassName CopyBundleProvider --outPath ${SRCROOT}/SampleApp/Resource
+
+
+```
+
+
+
+* 将生成的source code文件加入project即可
+* 最后你只需要一句代码即可以实现国际化，例如：
+
+```swift
+titleLabel.text = Strings.Home.helloWorld.localized()
+
+```
+
+## Demo
+本Demo不仅演示了,多语言，还简单演示多地区，相信足以覆盖绝大部分使用场景

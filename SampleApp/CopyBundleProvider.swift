@@ -74,7 +74,6 @@ final class CopyBundleProvider: NSObject {
 
 extension CopyBundleProvider: CopyBundleCovertible {
     func asBundle() -> Bundle {
-        print(bundle.localizedString(forKey: "age", value: nil, table: "Root"))
 
         return bundle
     }
