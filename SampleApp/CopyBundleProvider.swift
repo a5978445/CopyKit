@@ -23,7 +23,12 @@ final class CopyBundleProvider: NSObject {
 
     var languageCode: LanguageCode? {
         didSet {
-            UserDefaults.standard.setValue(languageCode?.rawValue, forKey: kLanguageCode)
+            if oldValue != languageCode {
+                UserDefaults.standard.setValue(languageCode?.rawValue, forKey: kLanguageCode)
+                NotificationCenter.default.post(name: languageChangedNotification, object: nil)
+            }
+            
+            
         }
     }
 

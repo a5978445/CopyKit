@@ -14,13 +14,20 @@ targets:
 
   SampleApp:
     type: application
-    sources: SampleApp
+    sources:
+      - SampleApp
+      - CopyKit/Core/CopyBundleCovertible.swift
     platform: iOS
-    deploymentTarget: "12.0"
+    deploymentTarget: "13.0"
+
 
   ConvertCommand:
     type: tool
     platform: macOS
+    sources: Empty
+    postBuildScripts:
+      - path: preBuildSheel/covertCopy.sh
+        name: covertCopy
 
 
 

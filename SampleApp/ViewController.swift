@@ -20,14 +20,12 @@ class ViewController: UIViewController {
     @objc func selectLanguage() {
         let alertVC = UIAlertController(title: "选择语言", message: nil, preferredStyle: .actionSheet)
         alertVC.addAction(UIAlertAction(title: "简体中文", style: .default, handler: { _ in
-            UserDefaults.standard.set(LanguageCode.zhHans.rawValue, forKey: kLanguageCode)
-            NotificationCenter.default.post(name: languageChangedNotification, object: nil)
+            CopyBundleProvider.shared.languageCode = .zhHans
             self.updateText()
         }))
 
         alertVC.addAction(UIAlertAction(title: "english", style: .default, handler: { _ in
-            UserDefaults.standard.set(LanguageCode.en.rawValue, forKey: kLanguageCode)
-            NotificationCenter.default.post(name: languageChangedNotification, object: nil)
+            CopyBundleProvider.shared.languageCode = .en
             self.updateText()
         }))
 
